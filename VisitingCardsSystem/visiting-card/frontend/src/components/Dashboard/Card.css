@@ -1,0 +1,59 @@
+/* Card container to manage the layout */
+.card-containerr {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
+  
+  /* Basic styling for the card */
+  .card {
+    width: 18rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for card */
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card image styling */
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Card body styling */
+  .card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Card title styling */
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Card description styling */
+  .card-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsive styling for smaller screens */
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+  

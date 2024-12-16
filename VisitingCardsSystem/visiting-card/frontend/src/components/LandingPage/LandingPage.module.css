@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 100vh; /* Full viewport height */
+  background-color: #f7fafc; /* Light gray background */
+}
+
+  
+  .card {
+    text-align: center;
+    padding: 2rem;
+    /* background-color: white; */
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    width: 100%;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #3182ce; /* Blue color */
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    color: #4a5568; /* Gray color */
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    padding: 1rem 2rem;
+    background-color: #3182ce; /* Blue background */
+    color: white;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #2b6cb0; /* Darker blue on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+  
+    .subtitle {
+      font-size: 1rem;
+    }
+  
+    .button {
+      font-size: 1.125rem;
+    }
+  }
+  
