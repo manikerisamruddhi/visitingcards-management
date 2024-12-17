@@ -1,49 +1,3 @@
-// const express = require("express");
-// const app = express();
-// const cookieParser = require("cookie-parser");
-// const cors = require("cors");
-// const dotenv = require("dotenv");
-// const connectToMongoDB = require("./db/connectToDb"); // Import the connectToMongoDB function
-
-// dotenv.config(); // Load environment variables from .env
-
-// const authRoute = require("./routes/auth.routes.js");
-// const userRoute = require("./routes/user.route.js");
-// const cardRoute = require("./routes/card.routes.js");
-
-// app.use(
-//   cors({
-//     origin: "*",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
-
-// app.use(express.json());
-// app.use(cookieParser());
-
-// const port = process.env.PORT || 3000;
-
-// // Connect to the database
-// connectToMongoDB()
-//   .then(() => {
-//     console.log("Connected to the database successfully.");
-
-//     // Start the server after the database connection is established
-//     app.listen(port, () => {
-//       console.log("Server is listening on port:", port);
-//     });
-//   })
-//   .catch((error) => {
-//     console.error("Database connection failed:", error.message);
-//     process.exit(1); // Exit the process if the connection fails
-//   });
-
-// // API routes
-// app.use("/api/auth", authRoute);
-// app.use("/api/user", userRoute);
-// app.use("/api/card", cardRoute);
-
 
 
 const express = require("express");
@@ -54,14 +8,10 @@ const cors = require("cors");
 const authRoute = require("./routes/auth.routes.js");
 const userRoute = require("./routes/user.route.js");
 const cardRoute = require("./routes/card.routes.js");
-
-// Load environment variables from .env file
 dotenv.config();
 
-// Initialize express app
 const app = express();
 
-// Middleware setup
 app.use(
   cors({
     origin: "*", // Update this to restrict origins in production

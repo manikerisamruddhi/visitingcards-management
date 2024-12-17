@@ -8,7 +8,7 @@ interface CardProps {
   cardImage: string;
   name: string | undefined;
   title: string | undefined;
-  description: string | undefined;
+  designation: string | undefined;
   cardName: string | undefined;
   company: string | undefined;
   contact: any;
@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({
   cardImage,
   name,
   title,
-  description,
+  designation,
   cardName,
   company,
   contact,
@@ -76,15 +76,15 @@ const Card: React.FC<CardProps> = ({
   }
 
   return (
-    <div className="card-containerr" key={_id}>
-      <div className="card">
+    <div className="card-containerr"  key={_id}>
+      <div className="card" style={{backgroundColor:'#D3D3D3'}}>
         <img className="card-image" src={cardImage} alt={title} />
-        <div className="card-body">
-          <h4 className="card-title">{cardName}</h4>
-          <p className="card-description">{description}</p>
-          <p className="company">{company}</p>
-          <p className="contact">{contact}</p>
-          <p className="email">{email}</p>
+        <div className="card-body" >
+          <h4 className="card-title">{name}</h4>
+          {company && <p className="company"><b>Company: </b>{company}</p>}
+          {contact && <p className="contact"><b>Contact: </b>{contact}</p>}
+         {email && <p className="email"><b>Email: </b>{email}</p>}
+          {designation && <p className="card-description"><b>Address: </b>{designation}</p>}
           {cardUserid === currUserId && (
             <div
               style={{
@@ -93,12 +93,40 @@ const Card: React.FC<CardProps> = ({
                 justifyContent: "space-between",
               }}
             >
-              {/* <button onClick={() => handleUpdateFormVisible()} style={{ padding: "5px" }}>
+              <button onClick={() => handleUpdateFormVisible()} style={{ padding: "5px" , backgroundColor: "#007bff",border: "none",width:'120px',
+    borderRadius: "5px",cursor: "pointer", 
+    fontSize: "16px", 
+    transition: "background-color 0.3s ease",}}>
                 Update
-              </button> */}
-              <button onClick={deleteHandle} style={{ padding: "5px" }}>
-                Delete
               </button>
+              {/* <button onClick={deleteHandle} style={{ padding: "5px" }}>
+                Delete
+              </button> */}
+             <button
+  onClick={() => {
+    const confirmed = window.confirm("Are you sure you want to delete this item?");
+    if (confirmed) {
+      deleteHandle();
+    }
+  }}
+  style={{
+    padding: "5px 10px", // Padding around the button text
+    backgroundColor: "red", // Red background color
+    color: "black", // White text color
+    border: "none", // No border
+    borderRadius: "5px", // Rounded corners
+    cursor: "pointer", // Pointer cursor on hover
+    fontSize: "16px", // Text size
+    transition: "background-color 0.3s ease", // Smooth transition for background color change
+    width:'130px'
+  }}
+  onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = "#d9534f"} // Darker red on hover
+  onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = "#d11a2a"} // Reset to red on mouse leave
+>
+  Delete
+</button>
+
+
             </div>
           )}
         </div>

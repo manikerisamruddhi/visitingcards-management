@@ -21,39 +21,40 @@ const SignUp: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
     const dataToSend = {
       username: formData.username,
       email: formData.email,
       password: formData.password,
       role: formData.role,
     };
-
+  
     try {
-      const response = await fetch("http://localhost:3000/api/auth/sign-up", {
+      const response = await fetch("api/auth/sign-up", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dataToSend),
       });
-
+  
+      const responseData = await response.json();
+      console.log({responseData})
+      //navigate("/dashboard"); // Redirect to dashboard
       if (response.ok) {
-        const responseData = await response.json();
         console.log("Signup successful", responseData);
-
-        // Store userId in localStorage for future requests
-        localStorage.setItem("userId", responseData.userId);
-        navigate("/dashboard"); // Redirect to /dashboard route
+        localStorage.setItem("userId", responseData.user._id); // Storing user ID correctly
+        navigate("/dashboard", { state: { userId: responseData.user._id, username: responseData.user.username } });
+        
       } else {
-        const errorData = await response.json();
-        alert(`Error: ${errorData.error || "An error occurred"}`);
+        alert(`Error: ${responseData.error || "An error occurred"}`);
       }
     } catch (error) {
       console.error("Error during signup:", error);
+      alert("An error occurred while signing up. Please try again.");
     }
   };
-
+  
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.formContainer}>

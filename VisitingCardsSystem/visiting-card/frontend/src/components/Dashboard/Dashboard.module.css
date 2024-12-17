@@ -93,3 +93,125 @@
     padding: 1rem;
   }
 }
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #007bff; /* Example blue color */
+  display: flex;
+  align-items: center; /* Centers items vertically */
+  justify-content: space-between; /* Space between the title and the button */
+  padding: 0 20px; /* Add padding for spacing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-title {
+  color: white;
+  font-size: 50px;
+
+  margin: 0;
+  text-align: center;
+  flex-grow: 1; /* Make title grow to fill available space */
+}
+
+.navbar-button {
+  background-color: white;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.navbar-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Base styles for the navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.navbar-title {
+  text-align: center;
+  font-size: 40px;
+  color: blue;
+}
+
+.upload-container {
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* For larger screens, use the default layout */
+@media screen and (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .navbar-title {
+    font-size: 40px; /* You can adjust for larger screens if needed */
+  }
+
+  .upload-container {
+    margin-left: 90%;
+  }
+}
+
+/* For mobile screens, adjust the navbar */
+@media screen and (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navbar-title {
+    font-size: 30px; /* Adjust title size on smaller screens */
+    margin-bottom: 10px; /* Space between title and button */
+  }
+
+  .upload-container {
+    text-align: center; /* Center the upload button on smaller screens */
+    margin-top: 10px;
+  }
+}
+
+/* Base styles for the search input */
+.search-input {
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's width */
+}
+
+/* For mobile devices (max-width: 767px) */
+@media screen and (max-width: 767px) {
+  .search-input {
+    font-size: 14px; /* Reduce font size for smaller screens */
+    padding: 8px; /* Adjust padding */
+    max-width: 100%; /* Make input fill the width of the screen */
+  }
+}
+
+/* For larger screens (min-width: 768px) */
+@media screen and (min-width: 768px) {
+  .search-input {
+    font-size: 16px; /* Default font size for larger screens */
+    max-width: 400px; /* Limit the maximum width */
+  }
+}
